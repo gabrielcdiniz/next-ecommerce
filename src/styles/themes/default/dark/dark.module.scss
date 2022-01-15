@@ -1,0 +1,15 @@
+@charset 'utf-8';
+
+$primary-color: #9e63cb;
+$on-primary-color: #140041;
+
+$secondary-color: #54c6a7;
+$on-secondary-color: #005233;
+
+$background: #e5e5e5;
+$on-background: #606060;
+
+:export {
+  primaryColor: $on-primary-color;
+  text: $primary-color;
+}
