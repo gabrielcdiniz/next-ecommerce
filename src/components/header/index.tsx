@@ -13,7 +13,7 @@ export const Header = () => {
 
   return (
     <header className={getStyle("header")}>
-      <section title="logo-site-name">
+      <section title="header-sections">
         <figure
           data-testid={getDataTestId("logoImage")}
           className={getStyle("header", "image")}
@@ -33,6 +33,8 @@ export const Header = () => {
           {BUSINESS_NAME}
         </h1>
       </section>
+
+      <section title="header-sections"></section>
     </header>
   );
 };

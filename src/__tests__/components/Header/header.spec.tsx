@@ -12,15 +12,23 @@ const matcher = getContentAndElement;
 
 describe("When render <Header /> component", () => {
   it('should render a "header" tag wrapping container', () => {
-    const { queryByRole, getByTitle } = render(<Header />);
+    const { queryByRole } = render(<Header />);
     const classNameCompare = style("header");
 
     const headerContainerSUT = queryByRole(matcher("banner", "header"));
-    const sectionsContainerSUT = getByTitle(matcher("logo-site-name", "section"));
 
     expect(headerContainerSUT).not.toBe(null);
-    expect(sectionsContainerSUT).not.toBe(null);
     expect(headerContainerSUT?.className.includes(classNameCompare)).toBe(true);
+  });
+
+  it('should render two "section" tag', () => {
+    const { getAllByTitle } = render(<Header />);
+    const sectionsContainerSUT = getAllByTitle(
+      matcher("header-sections", "section")
+    );
+
+    expect(sectionsContainerSUT).not.toBe(null);
+    expect(sectionsContainerSUT.length).toBe(2);
   });
 
   it("should render image logo", () => {
