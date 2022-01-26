@@ -1,9 +1,8 @@
-import "../../styles/globals.scss";
+import "./../styles/globals.scss";
+import { ConfigContextProvider } from "@/contexts/ConfigContext";
 import type { AppProps } from "next/app";
-import { ConfigContextProvider } from "@contexts/ConfigContext";
 
-function MyApp({ Component, pageProps }: AppProps) {
-
+function SuperMarket({ Component, pageProps }: AppProps) {
   return (
     <ConfigContextProvider>
       <Component {...pageProps} />
@@ -11,4 +10,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default SuperMarket;

@@ -16,9 +16,16 @@
     "incremental": true,
     "baseUrl": "./src/",
     "paths": {
-      "@contexts/*": ["./contexts/*"]
+      "@/components/*": ["components/*"],
+      "@/constants/*": ["constants/*"],
+      "@/contexts/*": ["contexts/*"],
+
+      "@/helpers/*": ["helpers/*"],
+      "@/hooks/*": ["hooks/*"],
+
+      "@/pages/*": ["pages/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.scss"],
+  "exclude": ["node_modules", "__tests__/**"]
 }
