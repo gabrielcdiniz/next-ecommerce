@@ -1,0 +1,36 @@
+@use "sass:map";
+
+@import url("https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap");
+
+@import "./../../styles/themes/default/light/light.module.scss";
+@import "./../../styles/themes/default/variables.module.scss";
+
+.header {
+  background-color: $primary-color;
+  color: $text-on-primary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: map.get($paddings, "medium");
+  box-shadow: 0px 1px 30px 1px $on-primary-color;
+
+  section {
+    display: flex;
+    gap: map.get($gutters, "small");
+    justify-content: center;
+    align-items: center;
+
+    .header__image {
+      position: relative;
+      height: 40px;
+      width: 40px;
+    }
+
+    .header__site-name {
+      font-weight: 400;
+      font-family: "Neonderthaw", cursive;
+      text-decoration: underline;
+      letter-spacing: 0px;
+    }
+  }
+}

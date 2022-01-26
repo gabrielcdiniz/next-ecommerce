@@ -1,10 +1,9 @@
-@charset 'utf-8';
-
 $primary-color: #9e63cb;
-$text-on-primary-color: #F0F0F0;
+$text-on-primary-color: #f0f0f0;
 $on-primary-color: #140041;
 
 $secondary-color: #54c6a7;
+$text-on-secondary-color: #f0f0f0;
 $on-secondary-color: #005233;
 
 $background: #e5e5e5;
@@ -13,4 +12,7 @@ $on-background: #606060;
 :export {
   primaryColor: $primary-color;
   textOnPrimaryColor: $text-on-primary-color;
+
+  secondaryColor: $secondary-color;
+  textOnSecondaryColor: $text-on-secondary-color;
 }

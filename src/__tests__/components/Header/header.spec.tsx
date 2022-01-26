@@ -1,18 +1,47 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import { BUSINESS_NAME } from "../../../constants/unit-tests";
-import { Header } from "@/components/Header";
+import { BUSINESS_NAME } from "@/constants/unit-tests";
+import { Header } from "@/components/header";
+import { getBEM } from "@/helpers/getBEM";
+import { getDataTestId } from "@/helpers/getDataTestId";
+import { getContentAndElement } from "@/helpers/getContentAndElement";
 
-describe("[Header]", () => {
-  describe("when render <Header /> component", () => {
-    it("should show required tags and components", () => {
-      const { getByRole, getByText } = render(<Header />);
+const style = getBEM;
+const tid = getDataTestId;
+const matcher = getContentAndElement;
 
-      expect(getByRole("banner")).toBeInTheDocument();
-      expect(getByRole("img")).toBeInTheDocument();
-      expect(getByRole("heading")).toBeInTheDocument();
+describe("When render <Header /> component", () => {
+  it('should render a "header" tag wrapping container', () => {
+    const { queryByRole, getByTitle } = render(<Header />);
+    const classNameCompare = style("header");
 
-      expect(getByText(BUSINESS_NAME)).toBeInTheDocument();
-    });
+    const headerContainerSUT = queryByRole(matcher("banner", "header"));
+    const sectionsContainerSUT = getByTitle(matcher("logo-site-name", "section"));
+
+    expect(headerContainerSUT).not.toBe(null);
+    expect(sectionsContainerSUT).not.toBe(null);
+    expect(headerContainerSUT?.className.includes(classNameCompare)).toBe(true);
+  });
+
+  it("should render image logo", () => {
+    const { queryByTestId } = render(<Header />);
+    const classNameCompare = style("header", "image");
+
+    const imageSUT = queryByTestId(matcher(tid("logoImage"), "figure"));
+
+    expect(imageSUT).toBeInTheDocument();
+    expect(imageSUT?.className.includes(classNameCompare)).toBe(true);
+  });
+
+  it("should display site name", () => {
+    const { queryByTestId } = render(<Header />);
+    const classNameCompare = style("header", "site-name");
+
+    const headingSUT = queryByTestId(matcher(tid("siteName"), "h1"));
+
+    expect(headingSUT).not.toBe(null);
+    expect(headingSUT).toBeInTheDocument();
+    expect(headingSUT?.className.includes(classNameCompare)).toBe(true);
+    expect(headingSUT?.textContent).toBe(BUSINESS_NAME);
   });
 });
