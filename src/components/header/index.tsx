@@ -34,7 +34,32 @@ export const Header = () => {
         </h1>
       </section>
 
-      <section title="header-sections"></section>
+      <section title="header-sections">
+        <button
+          data-testid={tid("cartAction")}
+          className={getStyle("header", "cart-button")}
+          type="button"
+        >
+          <figure
+            data-testid={tid("cartImage")}
+            className={getStyle("header", "cart-image")}
+          >
+            <Image
+              src={"/cart-simple.png"}
+              alt="cart-simple.png"
+              width={32}
+              height={32}
+            />
+          </figure>
+
+          <span
+            data-testid={tid("cartBadge")}
+            className={getStyle("header", "cart-badge")}
+          >
+            +9
+          </span>
+        </button>
+      </section>
     </header>
   );
 };
